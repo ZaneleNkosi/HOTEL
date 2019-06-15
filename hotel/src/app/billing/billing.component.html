@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+  <header>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a href="#" class="navbar-brand ml-3">The Rose Bud Boutique Hotel</a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu"
+        aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle Navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse"></div>
+      <div class="collapse navbar-collapse" id="navbarMenu">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a routerLink="/home" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/gallery" class="nav-link">Gallery</a>
+          </li>
+          <li class="nav-item active">
+            <a routerLink="/services" class="nav-link">Services</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/about-us" class="nav-link">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/contact-us" class="nav-link">Contact Us</a>
+          </li>
+        </ul>
+
+
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container-fluid p-0">
+      <div class="site-content">
+        <div class="d-flex justify-content-center">
+          <div class="d-flex flex-column">
+            <div class="register">
+              <div class="form">
+                <h1>Booking Information</h1>
+                <form #bookingData="ngForm" (ngSubmit)="addBooking(bookingData.value)" novalidate>
+                    <div class="form-group" *ngIf="bookingData.invalid">
+                        <label for="exampleInputUsername1">Name</label>
+                        <input
+                        type="text"
+                        class="form-control"
+                        id="username"
+                        required minlength="4"
+                        placeholder="Enter Username"
+                        ngModel
+                        name="name">  
+                       
+                       
+                      
+                      </div>
+                      <div class="form-group">
+                          <label for="exampleInputEmail1">Email address</label>
+
+                          <input
+                          type="email"
+                          class="form-control" 
+                          id="exampleInputEmail1" aria-describedby="emailHelp"
+                          placeholder="Enter Email"
+                          ngModel 
+                          name="email"
+                          required>
+                          
+                        </div>
+        
+                        <div class="form-group">
+                          <label for="exampleInputCheckin1">Check-in Date</label>
+                          <input type="date" 
+                          class="form-control" 
+                          id="exampleInputUsername"
+                          placeholder="Enter Check-in Date"
+                            ngModel
+                            name="date"
+                            required>
+                          
+                        </div>
+        
+                        <div class="form-group">
+                          <label for="exampleInputCheckout1">Check-Out Date</label>
+                          <input type="date" 
+                          class="form-control" 
+                          id="exampleInputUsername" 
+                          placeholder="Enter Check-Out Date"
+                            ngModel
+                            name="date2"
+                            required>
+                          
+                        </div>
+        
+                        <div class="form-group">
+                          <label for="exampleInputDays1">Days</label>
+                          <input type="text" 
+                          class="form-control" 
+                          id="exampleInputUsername" 
+                          placeholder="No. of Days"
+                            ngModel
+                            name="days"
+                            required>
+                          
+                        </div>
+        
+                        <div class="form-group">
+                          <label for="exampleInputGuests1">Guests</label>
+                          <input type="text" class="form-control" 
+                          id="exampleInputUsername" 
+                          placeholder="No. of Guests"
+                            ngModel
+                            name="guests"
+                            required>
+                          
+                        </div>
+        
+                        <div class="form-group">
+                          <label for="exampleInputGuests1">Suite</label><br>
+                          <input type="text" 
+                          class="form-control" 
+                          id="suite" 
+                          placeholder="Suite/Room"
+                            ngModel
+                            name="suite"
+                            required>
+                        </div>
+        
+                        <div class="form-group">
+                          <label for="exampleInputAmount1">Amount Due</label>
+                          <input type="text" 
+                          class="form-control" 
+                          id="exampleInputUsername" 
+                          placeholder="Amount Due"
+                            ngModel
+                            name="amt"
+                            required>
+                          
+                        </div>
+                        <br>
+        
+                        <br>
+                     
+                      <button class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample"
+                        aria-expanded="false" aria-controls="collapseExample" (click)="save()">
+                         Book Suite/Room
+                      </button>
+                </form>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+      <div class="register">
+        <div class="form">
+          <h1>Make Payment</h1>
+          <form>
+            <div class="form-group">
+              <label for="exampleInputUsername1">Name on Card</label>
+              <input type="text" class="form-control" id="exampleInputUsername" placeholder="Name on Card" required>
+
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Card number</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="Card Number" required>
+
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputCheckin1">Expiry Date</label>
+              <input type="text" class="form-control" id="exampleInputUsername" placeholder="Expiry Date" required>
+
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputCheckout1">CVC</label>
+              <input type="text" class="form-control" id="exampleInputUsername" placeholder="Enter CVC" required><br>
+              <input type="button" routerLink="/details" value="Done" class="btn btn-success">
+
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <footer>
+    <div class="section-5 text-center">
+      <h4 style="margin-top:5%">The Rose Bud Boutique Hotel</h4>
+      <h4 class="my-4">Vacation in Elegance</h4>
+
+      <div class="form-inline justify-content-center">
+        <input type="text" name="Email" id="email" placeholder="Email" size="40" class="form-control px-4 py-2">
+        <input type="button" value="Contact Us" class="btn btn-danger px-4 py-2">
+      </div>
+      <div class="social" style="margin:5%;">
+        <div class="d-flex flex-row justify-content-center">
+          <i class="fab fa-facebook-f m-2"></i>
+          <i class="fab fa-twitter m-2"></i>
+          <i class="fab fa-instagram m-2"></i>
+        </div>
+      </div>
+
+      <hr>
+      <h5 style="color:#00E8E8;">The Rose bud Boutique Hotel | Sandton &copy;</h5>
+    </div>
+  </footer>

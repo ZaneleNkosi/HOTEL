@@ -1,0 +1,143 @@
+ @import url('https://fonts.googleapis.com/css?family=Lato|Pacifico|Righteous|Roboto+Condensed|Ubuntu');
+ body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Lato';
+ }
+
+ .navbar-brand{
+     font-family: 'Pacifico';
+     font-size: 35px;
+     color:lightcoral !important;
+ }
+
+ .nav-link{
+     font-size: 16px;
+     margin: 15px;
+     color: black !important;
+     font-family: 'Roboto Condensed';
+}
+
+.nav-link:hover{
+    color: #00E8E8 !important;
+}
+
+.active .nav-link{
+    color: #00E8E8 !important; 
+}
+
+.menu-right-btn{
+    padding: 13px 46px;
+    margin-right: 4%;
+    background-color: transparent;
+    transition: all 300ms ease-in;
+}
+
+.site-content{
+    height: 100%;
+    background-image: url("../../assets/untitled12.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+ }
+
+.carousel-item{
+    margin-top: 50px;
+    width:1000px;
+    height:800px;
+}
+
+.site-title, .site-desc{
+    color: white;
+    font-family: 'Righteous';
+}
+
+.site-title{
+    margin-top: 30%;
+    margin-bottom: 6%;
+    font-size: 50px;
+}
+
+.site-desc{
+    font-size: 14px;
+    padding-left: 15%;
+}
+
+.register{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 100px auto;
+    background: rgba(77, 73, 73, 0.966);
+    opacity: 0.8;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.13)
+}
+
+.register .form{
+    height:400px;
+    width: 200px;
+ }
+ 
+ .form-group .text{
+    height: 200px;
+ }
+ 
+
+
+
+@media screen and(max-width: 768px){
+    .section-1 .card{
+        width: 14rem;
+    }
+ 
+    .section-4 .col-md-7 img{
+        width: 350px;
+    }
+
+    .carousel-item{
+        width: 550px;
+        height: 500px;
+    }
+ }
+ 
+ @media screen and(max-width: 320px){
+    .site-content .site-title{
+        font-size: 30px;
+        padding-left: 15%;
+    }
+ 
+    .site-content .site-btn2{
+        display: none;
+    }
+ 
+    .site-content .site-btn1{
+        margin-left: 15%;
+    }
+ 
+    .section-1 .heading-1, .section-1 .heading-2{
+        font-size: 25%;
+    }
+ 
+    .section-1 .col-md-4{
+        padding: 5%;
+        margin-left: 8%;
+    }
+ 
+    .section-1 .card{
+        width: 15rem;
+    }
+ 
+    .section-4 .col-md-5{
+        padding: 0% 15%;
+    }
+ 
+    footer input[type="button"]{
+        margin-top: 5%;
+    }
+
+    .carousel-item{
+        width: 250px;
+        height: 200px;
+    }
+ }

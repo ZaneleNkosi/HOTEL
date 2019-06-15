@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <body>
+
+    <header>
+
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a href="#" class="navbar-brand ml-3">The Rose Bud Boutique Hotel</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu"
+        aria-expanded="false" aria-label="Toggle Navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse"></div>
+      <div class="collapse navbar-collapse" id="navbarMenu">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a routerLink="/home" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/gallery" class="nav-link">Gallery</a>
+          </li>
+          <li class="nav-item active">
+            <a routerLink="/services" class="nav-link">Services</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/about-us" class="nav-link">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/contact-us" class="nav-link">Contact Us</a>
+          </li>
+        </ul>
+
+        
+      </div>
+      <div class="col-md-4">
+          <div class="alert alert-success alert-dismissible" *ngIf="msg">
+              <a href="#" class="close"(click)="clickMe()">&times;</a>
+              {{msg}}
+            </div>
+      </div>
+      </nav>
+    </header>
+
+    <main>
+        <div class="container-fluid p-0">
+          <div class="site-content">
+            <div class="d-flex justify-content-center">
+              <div class="d-flex flex-column">
+                  <div class="register">
+                      
+                      <table class="table table-bordered">
+                          <thead>
+                            <tr>
+                              <th width=200>Name</th>
+                              <th width=200>email Address</th>
+                              <th width=100>No. of Guests</th>
+                              <th width=200>Suite/Room</th>
+                              <th width=200>Check-in Date</th>
+                              <th width=200>Check-out Date</th>
+                              
+                              <th width=100>No. of days</th>
+                              
+                              <th width=200>Amount Due</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let n of bookingList">
+                              <td>{{n.name}}</td>
+                              <td>{{n.email}}</td>
+                              <td>{{n.guests}}</td>
+                              <td>{{n.suite}}</td>
+                              <td>{{n.date}}</td>
+                              <td>{{n.date2}}</td>
+                              <td>{{n.days}}</td>
+                              <td>{{n.amt}}</td>
+                              <td>
+
+                                  
+                                  <a class="btn btn-success" data-toggle="collapse" data-target="#collapseExample"
+                                  aria-expanded="false" aria-controls="collapseExample" (click)="editBooking(i)">EDIT</a>
+                                  <a class="btn btn-danger" (click)="deleteBooking(i)">DELETE</a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      
+                    </div>
+
+              </div>
+            </div>
+          </div>
+        </div>`
+        
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+              <div class="register">
+                <div class="form">
+                    <h1>Update Booking</h1>
+                    <form #bookingData="ngForm" (ngSubmit)="editBooking(bookingList.value)">
+                        <div class="form-group">
+                            <label for="exampleInputUsername1">Name</label>
+    
+                          <input
+                          type="text"
+                          class="form-control"
+                          id="name"
+                          placeholder="Enter Username"
+                          ngModel
+                          name="name"
+                          required>
+                            </div>
+                            
+                          <div class="form-group">
+                              <label for="exampleInputEmail1">Email address</label>
+    
+                            <input
+                            type="email"
+                            class="form-control" 
+                            id="email"
+                            placeholder="Enter Email"
+                            ngModel 
+                            name="email"
+                            required>                              
+                            </div>
+            
+                            <div class="form-group">
+                              <label for="exampleInputCheckin1">Check-in Date</label>
+                              <input type="date" 
+                              class="form-control" 
+                              id="date"
+                              placeholder="Enter Check-in Date"
+                              ngModel
+                              name="date"
+                              required>
+                            </div>
+            
+                            <div class="form-group">
+                              <label for="exampleInputCheckout1">Check-Out Date</label>
+                              <input type="date" 
+                              class="form-control" 
+                              id="date2"
+                              placeholder="Enter Check-Out Date"
+                              ngModel
+                              name="date2"
+                              required>                             
+                            </div>
+            
+                            <div class="form-group">
+                              <label for="exampleInputDays1">Days</label>
+                              <input type="text" 
+                              class="form-control" 
+                              id="days" 
+                              placeholder="No. of Days"
+                                ngModel
+                                name="days"
+                                required>                              
+                            </div>
+            
+                            <div class="form-group">
+                              <label for="exampleInputGuests1">Guests</label>
+                              <input type="text" 
+                              class="form-control" 
+                              id="guests"
+                              placeholder="No. of Guests"
+                              ngModel
+                              name="guests"
+                              required>                              
+                            </div>
+            
+                            <div class="form-group">
+                              <label for="exampleInputGuests1">Suite</label><br>
+                              <select ngModel name="suite" required>
+                                  <option value="suite">Suite</option>
+                                  <option value="rose">The Rose</option>
+                                  <option value="quirky">Quirky</option>
+                                  <option value="loft">Loft</option>
+                                </select >
+                            </div>
+            
+                            <div class="form-group">
+                              <label for="exampleInputAmount1">Amount Due</label>
+                              <input type="text"
+                              class="form-control" 
+                              id="amt" 
+                              placeholder="Amount Due"
+                              ngModel
+                              name="amt"
+                              required>                              
+                            </div>
+                            <br>
+                            <div class="form-group"> 
+                                <div class="col-sm-offset-2 col-sm-10">
+                                  <button type="submit" class="btn btn-default" (click)="updateBooking()">Update</button>
+                                </div>
+                              </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+        <footer>
+            <div class="section-5 text-center">
+              <h4 style="margin-top:5%">The Rose Bud Boutique Hotel</h4>
+              <h4 class="my-4">Vacation in Elegance</h4>
+    
+              <div class="form-inline justify-content-center">
+                
+              </div>
+              <div class="social" style="margin:5%;">
+              <div class="d-flex flex-row justify-content-center">
+                <i class="fab fa-facebook-f m-2"></i>
+                <i class="fab fa-twitter m-2"></i>
+                <i class="fab fa-instagram m-2"></i>
+              </div>
+            </div>
+    
+            <hr>
+            <h5 style="color:#00E8E8;">The Rose bud Boutique Hotel | Sandton &copy;</h5>
+            </div>
+          </footer>
+    
